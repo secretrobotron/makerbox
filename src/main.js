@@ -56,7 +56,7 @@ require(['snippets/googlemap', 'snippets/popcorn', 'snippets/text', 'snippets/ur
     };
 
     urlInput.addEventListener('keypress', function(e){
-      if(e.which === 13){
+      if(e.which === 13 && urlInput.value.replace(/\s/g, '').length > 0){
         var urlInputValue = urlInput.value;
         
         urlInput.value = "";
