@@ -1,6 +1,6 @@
 define([], function(){
   
-  return function(input, masonryWall){
+  return function(input){
     var popcornPlayer, div;
 
     Object.keys(Popcorn.player.registry).forEach(function(key){
@@ -13,13 +13,18 @@ define([], function(){
       var div = document.createElement('div');
       div.id = "popcorn-" + Date.now();
       div.classList.add('popcorn-vid');
-      var p = Popcorn.smart('#' + div.id, input);
-      p.on('loadedmetadata', function(){
-          setTimeout(function(){
-              masonryWall.reload();
-          }, 500);
-      });
-      return div;
+
+      return {
+        element: div,
+        wait: function(callback){
+          var p = Popcorn.smart('#' + div.id, input);
+          p.on('loadedmetadata', function(){
+            setTimeout(function(){
+              callback();
+            }, 100);
+          });
+        }
+      };
     }
   };
 

@@ -1,470 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <link href='http://fonts.googleapis.com/css?family=Merriweather:400,700,300' rel='stylesheet' type='text/css'>
-  <script src="lib/require.js" data-main="src/main"></script>
-    <style>
-      html, body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        font-family: helvetica;
-        background: #f3f3f3;
-      }
-    
-      
-      header {
-          background: #2A2D32;
-          height: 70px;
-          line-height: 70px;
-          position: relative;
-      }
-      
-      header h1 {
-         margin: 0;
-         color: #FFF;
-         font-size: 1.4em;
-         text-align: center;
-     }
-      
-      .wall {
-        margin: 0 auto;
-        -webkit-transition: height 0.6s ease, width 0.6s ease;
-        -moz-transition: height 0.6s ease, width 0.6s ease;
-        transition: height 0.6s ease, width 0.6s ease;
-        }
-        
-        .exploded {
-            display: none;
-        }
-        
-    .text {
-        background: #2A2D32;
-        color: #FFF;
-        font-family: merriweather, sans-serif;
-    }
-     .text > .inner {
-        padding: 2em;
-        font-size: 0.9em;
-        line-height: 1.6;
-      }
-      
-      .masonry-brick {
-        margin-bottom: 10px;
-         width: 560px;
-       }
-      .masonry-brick {
-          -webkit-transition: left 0.6s ease, right 0.6s ease, top 0.6s ease;
-        box-shadow: 0 4px 4px -3px rgba( 0, 0, 0, 0.1 );
-        border: 1px solid #DDD;
-      }
-      
-      .iframe-container {
-          position: relative;
-          width: 560px;
-           height: 370px;
-      }
-      
-      .iframe-container > iframe {
-        width: 100%;
-        height:100%;
-        margin: 0;
-      }
-      
-    .unit-small {
-        width: 275px;
-     }
-     
-     iframe.unit-small {
-        height: 200px;
-    }
-    
-     iframe.unit-small.portrait  {
-       height: 500px;
-     }
-     
-    .unit-large {
-        width: 560px;
-    }
-    
-    iframe.unit-large {
-        height: 315px;
-    }
-    
-    iframe.unit-large.portrait {
-         height: 700px;
-     }
-     
-
-      .wall {
-        width: 100%;
-        opacity: 0;
-        -webkit-transition: opacity 0.2s ease;
-        -moz-transition: opacity 0.2s ease;
-        transition: opacity 0.2s ease;
-      }
-      
-      .wall.on {
-         opacity: 1;
-     }
-
-      iframe {
-        border: 0;
-      }
-      
-      .profile {
-        position: absolute;
-        top: 0px;
-        right: 5px;
-        color: #fff;
-      }
-      
-      .profile .profile-pic {
-        width: 50px;
-        background: #fff;
-        padding: 4px;
-        top: 5px;
-        position: relative;
-        float: right;
-      }
-      
-      .profile h2 {
-        margin-top: 0;
-        padding-top: 0;
-        position: relative;
-        right: 20px;
-        text-align: right;
-        width: 300px;
-        font-size: 1em;
-        opacity: 0.8;
-      }
-      
-      .input-container {
-        width: 100%;
-        margin: 10px 0;
-        text-align: center;
-      }
-      
-      .input-container input {
-        width: 300px;
-        padding: 1em;
-        border: 1px solid #DDD;
-      }
-      .input-container input:focus {
-        border: 1px solid #FFCA47;
-        outline: none;
-      }
-     
-      .popcorn-vid {
-        width: 500px;
-        height: 300px;
-      }
-      
-      .url {
-        width: 300px;
-        padding: 10px;
-        overflow-y: hidden;
-        text-overflow: ellipsis;
-      }
-      
-   
-     .explode-button:hover {
-        background-color: rgba(255,202,71, 1);
-    }
-     
-     .googlemap {
-        width: 500px;
-        height: 300px;
-      }
-      
-      .googlemap iframe {
-          width: 500px;
-          height: 300px;
-          border: 0;
-      }
-
-      .menu {
-          position: absolute;
-          top: 0;
-          left: 0;
-      }
-      
-      .menu ul {
-          list-style: none;
-          margin: 0;
-          margin-left: 10px;
-          margin-top: 5px;
-          padding: 0;
-          height: 100%;
-          width: 200px;
-      }
-      
-      .menu ul li {
-          display: inline-block;
-          background: url('https://popcorn.webmaker.org/resources/controls/controls_icons.png'), #000;
-          width: 25px;
-          height: 25px;
-          margin-right: 10px;
-          -webkit-transition: all 0.2s ease;
-          -moz-transition: all 0.2s ease;
-          transition: all 0.2s ease;
-          border-radius: 5px;
-          cursor: pointer;
-      }
-
-      .menu ul li:hover {
-          background: url('https://popcorn.webmaker.org/resources/controls/controls_icons.png'), #999;
-      }
-      
-      .menu ul li:nth-child(1) {
-          background-position: -63px -3px;
-      }
-
-      .menu ul li:nth-child(2) {
-          background-position: 5px -3px;
-      }
-
-    /*********************************************************
-    * UI Elements on each square
-    */
-      .explode-button {
-        display: block;
-        margin-top: 8px;
-        width: 28px;
-        height: 28px;
-        border-radius: 3px;
-        cursor: pointer;
-        background: url( https://popcorn.webmaker.org/resources/controls/controls_icons.png) no-repeat;
-        background-position: 7px -2px;
-     }
-
-      .x {
-        position: absolute;
-        top: 5px;
-        right: 0;
-        height: 24px;
-        width: 24px;
-        background: url( "https://popcorn.webmaker.org/resources/icons/glyphiconshalflings-alt.png" ) -432px -24px no-repeat;
-      }
-
-      .masonry-brick:hover .mini-menu-inner {
-        top: 0;
-        opacity: 1;
-      }
-      .mini-menu {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 45px;
-        overflow: hidden;
-      }
-
-      .mini-menu-inner {
-        position: absolute;
-        background: rgba(255,202,71, 0.6);
-        top: -45px;
-        width: 100%;
-        height: 100%;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        z-index: 1;
-        height: 100%;
-        opacity: 0;
-        -webkit-transition: all 0.4s ease;
-        -moz-transition: all 0.4s ease;
-        transition: all 0.4s ease;
-      }
-
-      .mini-menu-inner > li {
-        padding: 0 1em;
-        line-height: 45px;
-        height: 100%;
-        float: left;
-        color: #555;
-        border-right: 1px solid #DFAD50;
-      }
-
-
-    </style>
+    <link href="http://fonts.googleapis.com/css?family=Merriweather:400,700,300" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="lib/require.js" data-main="src/main"></script>
     <script src="http://vanilla-masonry.desandro.com/masonry.min.js"></script>
     <script src="http://popcornjs.org/code/dist/popcorn-complete.min.js"></script>
     <script src="http://stevenlevithan.com/demo/parseuri/js/assets/parseuri.js"></script>
-    <script>
-      window.addEventListener( 'load', function(){
-        var wallDiv = document.querySelector('.wall');
-        var popcornProject = document.querySelector( ".explode-button" );
-        var explodedEls = document.querySelectorAll( ".exploded-item" );
-        var miniMenu = document.querySelector( ".mini-menu > a" );
-        var miniMenuInner = document.querySelector( ".mini-menu-inner" );
-
-        miniMenu.addEventListener( "click", function() {
-          miniMenuInner.classList.toggle( "on" );
-        }, false );
-
-
-        var wall = window.masonryWall = new Masonry(wallDiv, {
-          isFitWidth: true,
-          columnWidth: 275,
-          gutterWidth: 10
-        });
-        
-        wallDiv.classList.add( "on" );
-        
-        popcornProject.addEventListener( "click", function addExploded() {
-            var item,
-                allItems = [];
-            console.log( explodedEls );
-            for ( var i = 0; i < explodedEls.length; i++ ) {   
-                allItems.push( explodedEls[ i ] );
-                wallDiv.appendChild( explodedEls[ i ] );
-            }
-            wall.appended(allItems);
-            popcornProject.removeEventListener( "click", addExploded, false );
-            popcornProject.style.display =  "none";
-        }, false );
-        
-
-        document.ondragover = function(e){
-          e.preventDefault();
-          e.stopPropagation();
-          e.dataTransfer.dropEffect = 'copy';
-          return false;
-        };
-
-        document.ondrop = function(e){
-          e.preventDefault();
-          e.stopPropagation();
-          console.log(e.dataTransfer.files[0]);
-          return false;
-        };
-
-
-
-      }, false);
-
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function(){
-            var urlInput = document.querySelector('.input-container input');
-            var wall = document.querySelector('.wall');
-            
-            urlInput.addEventListener('keypress', function(e){
-                if(e.which === 13){
-                    var urlInputValue = urlInput.value;
-                    urlInput.value = "";
-                    
-                    var popcornPlayer, div;
-                    Object.keys(Popcorn.player.registry).forEach(function(key){
-                        if(!popcornPlayer && Popcorn.player.registry[key].canPlayType("", urlInputValue)){
-                            popcornPlayer = Popcorn.player.registry[key];
-                            console.log(key);
-                        }
-                    });
-                    
-                    if(popcornPlayer){
-                        div = document.createElement('div');
-                        div.id = "popcorn-" + Date.now();
-                        wall.insertBefore(div, wall.firstChild);
-                        div.classList.add('popcorn-vid');
-                        var url = urlInputValue;
-                        var p = Popcorn.smart('#' + div.id, url);
-                        console.log("2398479238749827349872987234234");
-                        p.on('loadedmetadata', function(){
-                            setTimeout(function(){
-                                masonryWall.reload();
-                            }, 500);
-                        });
-                        return;
-                    }
-                    
-                    if(parseUri){
-                        var parsedUri = parseUri(urlInputValue);
-                        
-                        if(parsedUri.host === 'maps.google.com'){
-                            div = document.createElement('div');
-                            div.id = 'googlemap-' + Date.now();
-                            div.classList.add('googlemap');
-                            var iframe = document.createElement('iframe');
-                            parsedUri.queryKey.source = 'embed';
-                            parsedUri.queryKey.output = 'svembed';
-                            iframe.src = parsedUri.protocol + '://' + parsedUri.host + parsedUri.path + '?' + Object.keys(parsedUri.queryKey).map(function(key){return key  + '=' + parsedUri.queryKey[key]}).join('&');
-                            div.appendChild(iframe);
-                            wall.insertBefore(div, wall.firstChild);
-                            masonryWall.reload();
-                            return;
-                        }
-                    }
-                    
-                    if(urlInputValue.indexOf('.') > -1 && urlInputValue.indexOf(' ') === -1){
-                        div = document.createElement('div');
-                        div.id = 'url-' + Date.now();
-                        div.classList.add('url');
-                        var a = document.createElement('a');
-                        a.href = urlInputValue;
-                        a.appendChild(document.createTextNode(urlInputValue));
-                        div.appendChild(a);
-                        wall.insertBefore(div, wall.firstChild);
-                        masonryWall.reload();
-                        return;
-                    }
-                    
-                    div = document.createElement('div');
-                    var innerDiv = document.createElement("div");
-                    div.id = 'text-' + Date.now();
-                    div.classList.add('text');
-                    div.classList.add('unit-small');
-                    div.appendChild( innerDiv );
-                    innerDiv.classList.add( "inner" );
-                    innerDiv.appendChild(document.createTextNode(urlInputValue));
-                    wall.insertBefore(div, wall.firstChild);
-                    masonryWall.reload();
-                    return;
-                    
-                }
-            }, false);
-        }, false);
-    </script>
   </head>
   <body>
     <header>
-        <h1>Blimps</h1>
-        <div class="menu">
-          <ul>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
-        <div class="profile"><img class="profile-pic" src="http://www.arcadestickers.co.uk/image/cache/data/charcaters/bobby-bubble-bobble-game%20character-sticker-500x500.png"/><h2>Kwaz's Makerbox</h2></div>
+      <h1>Blimps</h1>
+      <div class="menu">
+        <ul>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="profile"><img class="profile-pic" src="http://www.arcadestickers.co.uk/image/cache/data/charcaters/bobby-bubble-bobble-game%20character-sticker-500x500.png"/><h2>Kwaz's Makerbox</h2></div>
     </header>
     <div class="input-container"><input type="text" placeholder="paste urls here"/></div>
     <div class="wall">
       <div class="iframe-container unit-large">
-          <div class="mini-menu">
-            <a></a>
-            <ul class="mini-menu-inner">
-              <li><a class="explode-button"></a></li>
-              <div class="x"></div>
-            </ul>
-          </div>
-          <iframe src="http://popcorn.webmadecontent.org/aur_" width='560' height='358' frameborder='0' mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>
-     </div>
-     </div>
+        <div class="mini-menu">
+          <a></a>
+          <ul class="mini-menu-inner">
+            <li><a class="explode-button"></a></li>
+            <div class="x"></div>
+          </ul>
+        </div>
+        <iframe src="http://popcorn.webmadecontent.org/aur_" width='560' height='358' frameborder='0' mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>
+      </div>
+    </div>
     <div class="exploded">
-          <iframe class="exploded-item unit-large" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.uk/maps?t=h&amp;hl=en&amp;layer=c&amp;cbll=57.136967,-2.167779&amp;cbp=12,245.99,,3,7.84&amp;ie=UTF8&amp;hq=&amp;hnear=Belfast,+County+Antrim+BT9+7DU,+United+Kingdom&amp;panoid=WR_NiDOeEnuaVffNZnM6Lg&amp;ll=57.136894,-2.16763&amp;spn=0.001022,0.002411&amp;z=19&amp;source=embed&amp;output=svembed"></iframe>
+        <iframe class="exploded-item unit-large" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.uk/maps?t=h&amp;hl=en&amp;layer=c&amp;cbll=57.136967,-2.167779&amp;cbp=12,245.99,,3,7.84&amp;ie=UTF8&amp;hq=&amp;hnear=Belfast,+County+Antrim+BT9+7DU,+United+Kingdom&amp;panoid=WR_NiDOeEnuaVffNZnM6Lg&amp;ll=57.136894,-2.16763&amp;spn=0.001022,0.002411&amp;z=19&amp;source=embed&amp;output=svembed"></iframe>
 
-      <iframe class="exploded-item unit-large portrait"  src="http://www.flickr.com/slideShow/index.gne?user_id=69002638@N08" frameBorder="0"  scrolling="no"></iframe>
+        <iframe class="exploded-item unit-large portrait"  src="http://www.flickr.com/slideShow/index.gne?user_id=69002638@N08" frameBorder="0"  scrolling="no"></iframe>
       
-      <img class="exploded-item" src="http://popcorn.webmadecontent.org/images/Popcorn_Maker_wordmark_white.png"/>
-      <div class="exploded-item unit-small text">
+        <img class="exploded-item" src="http://popcorn.webmadecontent.org/images/Popcorn_Maker_wordmark_white.png"/>
+        <div class="exploded-item unit-small text">
           <div class="inner">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </div>
-      </div>
-      <img class="unit-small exploded-item" src="http://farm9.staticflickr.com/8440/7999652674_dd75e957fb_k.jpg">
+        </div>
+        <img class="unit-small exploded-item" src="http://farm9.staticflickr.com/8440/7999652674_dd75e957fb_k.jpg">
 
-<iframe class="unit-small portrait exploded-item" src="http://en.m.wikipedia.org/wiki/The_Life_and_Death_of_Colonel_Blimp"></iframe>
+        <iframe class="unit-small portrait exploded-item" src="http://en.m.wikipedia.org/wiki/The_Life_and_Death_of_Colonel_Blimp"></iframe>
     </div>
   </body>  
 </html>
