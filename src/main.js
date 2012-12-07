@@ -17,24 +17,28 @@ require(['snippets/googlemap', 'snippets/popcorn', 'snippets/text', 'snippets/ur
     var miniMenu = document.querySelector( ".mini-menu > a" );
     var miniMenuInner = document.querySelector( ".mini-menu-inner" );
 
+    var masonryWall = new Masonry(wallDiv, {
+      isFitWidth: true,
+      columnWidth: 275,
+      gutterWidth: 10
+    });
+
     miniMenu.addEventListener( "click", function() {
       miniMenuInner.classList.toggle( "on" );
     }, false );
 
-
     wallDiv.classList.add( "on" );
         
     popcornProject.addEventListener( "click", function addExploded() {
-        var item,
-            allItems = [];
-        console.log( explodedEls );
-        for ( var i = 0; i < explodedEls.length; i++ ) {   
-            allItems.push( explodedEls[ i ] );
-            wallDiv.appendChild( explodedEls[ i ] );
-        }
-        wall.appended(allItems);
-        popcornProject.removeEventListener( "click", addExploded, false );
-        popcornProject.style.display =  "none";
+      var item,
+          allItems = [];
+      for ( var i = 0; i < explodedEls.length; i++ ) {   
+          allItems.push( explodedEls[ i ] );
+          wallDiv.appendChild( explodedEls[ i ] );
+      }
+      masonryWall.appended(allItems);
+      popcornProject.removeEventListener( "click", addExploded, false );
+      popcornProject.style.display =  "none";
     }, false );
         
     document.ondragover = function(e){
@@ -50,12 +54,6 @@ require(['snippets/googlemap', 'snippets/popcorn', 'snippets/text', 'snippets/ur
       console.log(e.dataTransfer.files[0]);
       return false;
     };
-
-    var masonryWall = new Masonry(wallDiv, {
-      isFitWidth: true,
-      columnWidth: 275,
-      gutterWidth: 10
-    });
 
     urlInput.addEventListener('keypress', function(e){
       if(e.which === 13){
