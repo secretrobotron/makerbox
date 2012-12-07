@@ -5,7 +5,11 @@ define([], function(){
     var innerDiv = document.createElement("div");
     div.id = 'text-' + Date.now();
     div.classList.add('text');
-    div.classList.add('unit-small');
+    if ( input.length > 200 ) {
+      div.classList.add('unit-large');
+    } else {
+      div.classList.add('unit-small');
+    }
     div.appendChild( innerDiv );
     innerDiv.classList.add( "inner" );
     innerDiv.appendChild(document.createTextNode(input));
