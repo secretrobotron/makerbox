@@ -167,18 +167,8 @@
         text-overflow: ellipsis;
       }
       
-      .popcorn-project {
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        width: 28px;
-        height: 28px;
-        border-radius: 3px;
-        cursor: pointer;
-        background: rgba(255,202,71, 0.6) url( https://popcorn.webmaker.org/resources/controls/controls_icons.png) no-repeat;
-        background-position: 7px -2px;
-     }
-     .popcorn-project:hover {
+   
+     .explode-button:hover {
         background-color: rgba(255,202,71, 1);
     }
      
@@ -234,6 +224,43 @@
           background-position: 5px -3px;
       }
 
+    /*********************************************************
+    * UI Elements on each square
+    */
+      .explode-button {
+        position: absolute;
+        top: 30px;
+        right: 5px;
+        width: 28px;
+        height: 28px;
+        border-radius: 3px;
+        cursor: pointer;
+        background: rgba(255,202,71, 0.6) url( https://popcorn.webmaker.org/resources/controls/controls_icons.png) no-repeat;
+        background-position: 7px -2px;
+     }
+
+      .x {
+        position: absolute;
+        top: 5px;
+        right: 0;
+        height: 24px;
+        width: 24px;
+        background: url( "https://popcorn.webmaker.org/resources/icons/glyphiconshalflings-alt.png" ) -432px -24px no-repeat;
+      }
+
+      .mini-menu {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 20px;
+        height: 20px;
+        background: #2A2D32;
+      }
+
+      .mini-menu-inner {
+        display: none;
+      }
+
     </style>
     <script src="http://vanilla-masonry.desandro.com/masonry.min.js"></script>
     <script src="http://popcornjs.org/code/dist/popcorn-complete.min.js"></script>
@@ -241,7 +268,7 @@
     <script>
       window.addEventListener( 'load', function(){
         var wallDiv = document.querySelector('.wall');
-        var popcornProject = document.querySelector( ".popcorn-project" );
+        var popcornProject = document.querySelector( ".explode-button" );
         var explodedEls = document.querySelectorAll( ".exploded-item" );
 
         var wall = window.masonryWall = new Masonry(wallDiv, {
@@ -380,8 +407,16 @@
     <div class="input-container"><input type="text" placeholder="paste urls here"/></div>
     <div class="wall">
       <div class="iframe-container unit-large">
+          <div class="x"></div>
+          <div class="mini-menu">
+            <ul class="mini-menu-inner">
+              <li><a>Do this</a></li>
+              <li><a>Delete</a><li>
+              <li><a>Export</a></li>
+            </ul>
+          </div>
           <iframe src="http://popcorn.webmadecontent.org/aur_" width='560' height='358' frameborder='0' mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>
-    <a class="popcorn-project"></a>
+    <a class="explode-button"></a>
      </div>
      </div>
     <div class="exploded">
