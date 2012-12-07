@@ -254,12 +254,38 @@
         right: 5px;
         width: 20px;
         height: 20px;
-        background: #2A2D32;
+        background: #FFCA47;
+      }
+
+      .mini-menu > a {
+        display: block;
+        width: 100%;
+        height: 100%;
       }
 
       .mini-menu-inner {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        z-index: 1;
       }
+
+      .mini-menu-inner.on {
+        display: block;
+      }
+
+      .mini-menu-inner > li {
+        padding: 5px;
+        background: #FFCA47;
+        color: #555;
+        border-bottom: 1px solid #DFAD50;
+      }
+
 
     </style>
     <script src="http://vanilla-masonry.desandro.com/masonry.min.js"></script>
@@ -270,6 +296,13 @@
         var wallDiv = document.querySelector('.wall');
         var popcornProject = document.querySelector( ".explode-button" );
         var explodedEls = document.querySelectorAll( ".exploded-item" );
+        var miniMenu = document.querySelector( ".mini-menu > a" );
+        var miniMenuInner = document.querySelector( ".mini-menu-inner" );
+
+        miniMenu.addEventListener( "click", function() {
+          miniMenuInner.classList.toggle( "on" );
+        }, false );
+
 
         var wall = window.masonryWall = new Masonry(wallDiv, {
           isFitWidth: true,
@@ -306,6 +339,8 @@
           console.log(e.dataTransfer.files[0]);
           return false;
         };
+
+
 
       }, false);
 
@@ -409,9 +444,10 @@
       <div class="iframe-container unit-large">
           <div class="x"></div>
           <div class="mini-menu">
+            <a></a>
             <ul class="mini-menu-inner">
               <li><a>Do this</a></li>
-              <li><a>Delete</a><li>
+              <li><a>Delete</a></li>
               <li><a>Export</a></li>
             </ul>
           </div>
