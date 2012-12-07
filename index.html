@@ -229,14 +229,13 @@
     * UI Elements on each square
     */
       .explode-button {
-        position: absolute;
-        top: 30px;
-        right: 5px;
+        display: block;
+        margin-top: 8px;
         width: 28px;
         height: 28px;
         border-radius: 3px;
         cursor: pointer;
-        background: rgba(255,202,71, 0.6) url( https://popcorn.webmaker.org/resources/controls/controls_icons.png) no-repeat;
+        background: url( https://popcorn.webmaker.org/resources/controls/controls_icons.png) no-repeat;
         background-position: 7px -2px;
      }
 
@@ -249,18 +248,45 @@
         background: url( "https://popcorn.webmaker.org/resources/icons/glyphiconshalflings-alt.png" ) -432px -24px no-repeat;
       }
 
+      .masonry-brick:hover .mini-menu-inner {
+        top: 0;
+        opacity: 1;
+      }
       .mini-menu {
         position: absolute;
-        top: 5px;
-        right: 5px;
-        width: 20px;
-        height: 20px;
-        background: #2A2D32;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 45px;
+        overflow: hidden;
       }
 
       .mini-menu-inner {
-        display: none;
+        position: absolute;
+        background: rgba(255,202,71, 0.6);
+        top: -45px;
+        width: 100%;
+        height: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        z-index: 1;
+        height: 100%;
+        opacity: 0;
+        -webkit-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        transition: all 0.4s ease;
       }
+
+      .mini-menu-inner > li {
+        padding: 0 1em;
+        line-height: 45px;
+        height: 100%;
+        float: left;
+        color: #555;
+        border-right: 1px solid #DFAD50;
+      }
+
 
     </style>
     <script src="http://vanilla-masonry.desandro.com/masonry.min.js"></script>
@@ -271,6 +297,13 @@
         var wallDiv = document.querySelector('.wall');
         var popcornProject = document.querySelector( ".explode-button" );
         var explodedEls = document.querySelectorAll( ".exploded-item" );
+        var miniMenu = document.querySelector( ".mini-menu > a" );
+        var miniMenuInner = document.querySelector( ".mini-menu-inner" );
+
+        miniMenu.addEventListener( "click", function() {
+          miniMenuInner.classList.toggle( "on" );
+        }, false );
+
 
         var wall = window.masonryWall = new Masonry(wallDiv, {
           isFitWidth: true,
@@ -307,6 +340,8 @@
           console.log(e.dataTransfer.files[0]);
           return false;
         };
+
+
 
       }, false);
 
@@ -369,7 +404,6 @@
                         div.classList.add('url');
                         var a = document.createElement('a');
                         a.href = urlInputValue;
-                        a.setAttribute('target', '_blank');
                         a.appendChild(document.createTextNode(urlInputValue));
                         div.appendChild(a);
                         wall.insertBefore(div, wall.firstChild);
@@ -408,16 +442,14 @@
     <div class="input-container"><input type="text" placeholder="paste urls here"/></div>
     <div class="wall">
       <div class="iframe-container unit-large">
-          <div class="x"></div>
           <div class="mini-menu">
+            <a></a>
             <ul class="mini-menu-inner">
-              <li><a>Do this</a></li>
-              <li><a>Delete</a><li>
-              <li><a>Export</a></li>
+              <li><a class="explode-button"></a></li>
+              <div class="x"></div>
             </ul>
           </div>
           <iframe src="http://popcorn.webmadecontent.org/aur_" width='560' height='358' frameborder='0' mozallowfullscreen webkitallowfullscreen allowfullscreen></iframe>
-    <a class="explode-button"></a>
      </div>
      </div>
     <div class="exploded">
