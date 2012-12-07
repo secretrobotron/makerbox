@@ -341,6 +341,7 @@
                         div.classList.add('url');
                         var a = document.createElement('a');
                         a.href = urlInputValue;
+                        a.setAttribute('target', '_blank');
                         a.appendChild(document.createTextNode(urlInputValue));
                         div.appendChild(a);
                         wall.insertBefore(div, wall.firstChild);
