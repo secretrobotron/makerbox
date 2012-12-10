@@ -1,0 +1,21 @@
+{
+  "name": "darkroom",
+  "version": "0.0.1",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/secretrobotron/makerbox.git"
+  },
+  "keywords": [
+    "webmaker"
+  ],
+  "contributors": [
+    "secretrobotron <secretrobotron@gmail.com>",
+    "Kate Hudson <katehudsondesign@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "~3.0.3",
+    "config": "~0.4.18"
+  }
+}
