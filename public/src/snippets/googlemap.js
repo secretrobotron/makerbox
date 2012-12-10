@@ -2,6 +2,7 @@ define([], function(){
   
   return function(input){
     var parsedUri = parseUri(input);
+    var div;
     
     if(parsedUri.host === 'maps.google.com'){
       div = document.createElement('div');

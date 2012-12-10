@@ -1,6 +1,7 @@
 define([], function(){
   
   return function(input){
+    var div;
     if(input.indexOf('.') > -1 && input.indexOf(' ') === -1){
       div = document.createElement('div');
       div.id = 'url-' + Date.now();

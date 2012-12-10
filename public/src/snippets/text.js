@@ -1,6 +1,7 @@
 define([], function(){
   
   return function(input){
+    var div;
     div = document.createElement('div');
     var innerDiv = document.createElement("div");
     div.id = 'text-' + Date.now();
