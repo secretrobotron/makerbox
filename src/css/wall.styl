@@ -1,5 +1,5 @@
+@import 'mixins';
 @import 'panel';
-@import 'polyfills';
 @import 'snippets/popcorn-maker';
 @import 'snippets/flickr';
 @import 'snippets/googlemap';
@@ -10,10 +10,10 @@
 
 .wall {
   margin 0 auto
-  transition height 0.6s ease, width 0.6s ease, opacity 0.2s ease;
+  transition: height 0.6s ease, width 0.6s ease, opacity 0.2s ease;
   width 100%
   opacity 0
-  
+
   &.on {
    opacity 1
   }

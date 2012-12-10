@@ -26,10 +26,10 @@ iframe.unit-large.portrait{height:700px}
 .text > .inner{padding:2em;font-size:.9em;line-height:1.6}
 .wikipedia{height:500px;}
 .wikipedia iframe{width:100%;height:100%;border:0}
-.wall{margin:0 auto;-webkit-transition:height .6s ease,width .6s ease,opacity .2s ease;-moz-transition:height .6s ease,width .6s ease,opacity .2s ease;transition:height .6s ease,width .6s ease,opacity .2s ease;width:100%;opacity:0;}
+.wall{margin:0 auto;-webkit-transition:height .6s ease,width .6s ease,opacity .2s ease;-moz-transition:height .6s ease,width .6s ease,opacity .2s ease;-o-transition:height .6s ease,width .6s ease,opacity .2s ease;transition:height .6s ease,width .6s ease,opacity .2s ease;width:100%;opacity:0;}
 .wall.on{opacity:1}
 .masonry-brick{margin-bottom:10px;width:560px}
-.masonry-brick{-webkit-transition:left .6s ease,right .6s ease,top .6s ease;box-shadow:0 4px 4px -3px rgba(0,0,0,0.1);border:1px solid #ddd}
+.masonry-brick{-webkit-transition:left .6s ease right .6s ease top .6s ease;-moz-transition:left .6s ease right .6s ease top .6s ease;-o-transition:left .6s ease right .6s ease top .6s ease;transition:left .6s ease right .6s ease top .6s ease;box-shadow:0 4px 4px -3px rgba(0,0,0,0.1);border:1px solid #ddd}
 .profile{position:absolute;top:0;right:5px;color:#fff}
 .profile .profile-pic{width:50px;background:#fff;padding:4px;top:5px;position:relative;float:right}
 .profile h2{margin-top:0;padding-top:0;position:relative;right:20px;text-align:right;width:300px;font-size:1em;opacity:.8}
@@ -40,11 +40,11 @@ header h1{margin:0;color:#fff;font-size:1.4em;text-align:center}
 .input-container input:focus{border:1px solid #ffca47;outline:none}
 .menu{position:absolute;top:0;left:0}
 .menu ul{list-style:none;margin:0;margin-left:10px;margin-top:5px;padding:0;height:100%;width:200px}
-.menu ul li{display:inline-block;background:url("https://popcorn.webmaker.org/resources/controls/controls_icons.png"),#000;width:25px;height:25px;margin-right:10px;-webkit-transition:all .2s ease;-moz-transition:all .2s ease;-webkit-transition:all .2s ease;-moz-transition:all .2s ease;transition:all .2s ease;border-radius:5px;cursor:pointer}
+.menu ul li{display:inline-block;background:url("https://popcorn.webmaker.org/resources/controls/controls_icons.png"),#000;width:25px;height:25px;margin-right:10px;-webkit-transition:all .2s ease;-moz-transition:all .2s ease;-o-transition:all .2s ease;transition:all .2s ease;border-radius:5px;cursor:pointer}
 .menu ul li:hover{background:url("https://popcorn.webmaker.org/resources/controls/controls_icons.png"),#999}
 .menu ul li:nth-child(1){background-position:-63px -3px}
 .menu ul li:nth-child(2){background-position:5px -3px}
 .masonry-brick:hover .mini-menu-inner{top:0;opacity:1}
 .mini-menu{position:absolute;top:0;left:0;width:100%;height:45px;overflow:hidden}
-.mini-menu-inner{position:absolute;background:rgba(255,202,71,0.6);top:-45px;width:100%;height:100%;list-style:none;padding:0;margin:0;z-index:1;height:100%;opacity:0;-webkit-transition:all .4s ease;-moz-transition:all .4s ease;-webkit-transition:all .4s ease;-moz-transition:all .4s ease;transition:all .4s ease}
+.mini-menu-inner{position:absolute;background:rgba(255,202,71,0.6);top:-45px;width:100%;height:100%;list-style:none;padding:0;margin:0;z-index:1;height:100%;opacity:0;-webkit-transition:all .4s ease;-moz-transition:all .4s ease;-o-transition:all .4s ease;transition:all .4s ease}
 .mini-menu-inner > li{padding:0 1em;line-height:45px;height:100%;float:left;color:#555;border-right:1px solid #dfad50}
