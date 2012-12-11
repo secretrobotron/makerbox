@@ -21,7 +21,7 @@ iframe.unit-large.portrait{height:700px}
 .googlemap{height:300px;}
 .googlemap iframe{width:100%;height:100%;border:0}
 .popcorn-vid{width:500px;height:300px}
-.url{width:300px;padding:10px;overflow-y:hidden;text-overflow:ellipsis}
+.url > .inner{padding:2em;font-size:.9em;line-height:1.6;overflow:hidden;text-overflow:ellipsis}
 .text{background:#2a2d32;color:#fff;font-family:merriweather,sans-serif}
 .text > .inner{padding:2em;font-size:.9em;line-height:1.6}
 .wikipedia{height:500px;}
