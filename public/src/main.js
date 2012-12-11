@@ -67,7 +67,6 @@ require.config({
           var newItems = Array.prototype.slice.call(item.explode());
 
           newItems.forEach(function(item){
-            console.log(item);
             if(typeof item === 'string'){
               addItem(findSnippetMatch(item), rootElement);
             }
