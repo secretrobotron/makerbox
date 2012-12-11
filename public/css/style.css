@@ -29,7 +29,7 @@ iframe.unit-large.portrait{height:700px}
 .wall{margin:0 auto;-webkit-transition:height .6s ease,width .6s ease,opacity .2s ease;-moz-transition:height .6s ease,width .6s ease,opacity .2s ease;-o-transition:height .6s ease,width .6s ease,opacity .2s ease;transition:height .6s ease,width .6s ease,opacity .2s ease;width:100%;opacity:0;}
 .wall.on{opacity:1}
 .masonry-brick{margin-bottom:10px;width:560px}
-.masonry-brick{-webkit-transition:left .6s ease right .6s ease top .6s ease;-moz-transition:left .6s ease right .6s ease top .6s ease;-o-transition:left .6s ease right .6s ease top .6s ease;transition:left .6s ease right .6s ease top .6s ease;box-shadow:0 4px 4px -3px rgba(0,0,0,0.1);border:1px solid #ddd}
+.masonry-brick{-webkit-transition:left .6s ease,right .6s ease,top .6s ease;-moz-transition:left .6s ease,right .6s ease,top .6s ease;-o-transition:left .6s ease,right .6s ease,top .6s ease;transition:left .6s ease,right .6s ease,top .6s ease;box-shadow:0 4px 4px -3px rgba(0,0,0,0.1);border:1px solid #ddd}
 .profile{position:absolute;top:0;right:5px;color:#fff}
 .profile .profile-pic{width:50px;background:#fff;padding:4px;top:5px;position:relative;float:right}
 .profile h2{margin-top:0;padding-top:0;position:relative;right:20px;text-align:right;width:300px;font-size:1em;opacity:.8}
