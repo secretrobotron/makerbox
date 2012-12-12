@@ -22,7 +22,8 @@ define(['./snippet', 'util/dom'], function(snippet){
         element: div,
         explode: function(){
           return explodeItems;
-        }
+        },
+        edit: '[app]http://popcorn.webmaker.org/templates/basic/?savedDataUrl=/api/remix/37'
       };
     }
   };

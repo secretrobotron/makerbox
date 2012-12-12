@@ -21,7 +21,8 @@ define(['./snippet', 'util/dom'], function(snippet){
         element: div,
         explode: function(){
           return explodeItems;
-        }
+        },
+        edit: 'http://thimble.webmaker.org/p/' + urlMatch[3] + '/edit'
       };
     }
   };

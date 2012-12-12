@@ -33,6 +33,8 @@ require.config({
   function start(){
     var urlInput = document.querySelector('.input-container input');
     var wallDiv = document.querySelector('.wall');
+    var appContainer = document.querySelector('.app-overlay');
+    var appIframe = appContainer.querySelector('iframe');
 
     var masonryWall = window._m = new Masonry(wallDiv, {
       isFitWidth: true,
@@ -48,39 +50,61 @@ require.config({
 
     function addItem(item, insertAfterElement){
       var rootElement;
-      var explodeButton, miniMenu, miniMenuInner;
+      var explodeButton, miniMenu, miniMenuInner, editButton;
 
       rootElement = item.element;
 
-      if(item.explode){
+      if(item.explode || item.edit){
         miniMenu = explodeContainer.querySelector('.mini-menu').cloneNode(true);
         rootElement.appendChild(miniMenu);
 
         explodeButton = rootElement.querySelector('.explode-button');
+        editButton = rootElement.querySelector('.edit-button');
         miniMenu = rootElement.querySelector('.mini-menu > a');
         miniMenuInner = rootElement.querySelector('.mini-menu-inner');
+
+        if(!item.explode){
+          explodeButton.parentNode.removeChild(explodeButton);
+        }
+        else {
+          explodeButton.addEventListener('click', function addExploded(){
+            var newItems = Array.prototype.slice.call(item.explode());
+
+            newItems.forEach(function(item){
+              if(typeof item === 'string'){
+                addItem(findSnippetMatch(item), rootElement);
+              }
+              else {
+                wallDiv.appendChild(item);
+              }
+            });
+
+            explodeButton.removeEventListener('click', addExploded, false);
+            explodeButton.style.display = 'none';
+
+            masonryWall.reload();
+          }, false);
+        }
+
+        if(!item.edit){
+          editButton.parentNode.removeChild(editButton);
+        }
+        else {
+          if(item.edit.indexOf('[app]') === 0){
+            editButton.addEventListener('click', function(e){
+              appContainer.classList.add('on');
+              appIframe.src = item.edit.substr(5);
+            }, false);
+          }
+          else {
+            editButton.href = item.edit;
+          }
+        }
 
         miniMenu.addEventListener('click', function() {
           miniMenuInner.classList.toggle('on');
         }, false );
 
-        explodeButton.addEventListener('click', function addExploded(){
-          var newItems = Array.prototype.slice.call(item.explode());
-
-          newItems.forEach(function(item){
-            if(typeof item === 'string'){
-              addItem(findSnippetMatch(item), rootElement);
-            }
-            else {
-              wallDiv.appendChild(item);
-            }
-          });
-
-          explodeButton.removeEventListener('click', addExploded, false);
-          explodeButton.style.display = 'none';
-
-          masonryWall.reload();
-        }, false);
       }
 
       if(insertAfterElement){
