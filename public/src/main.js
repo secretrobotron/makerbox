@@ -7,18 +7,19 @@ require.config({
 })([
   'snippets/flickr', 'snippets/googlemap', 'snippets/popcorn',
   'snippets/text', 'snippets/url', 'snippets/popcorn-maker',
-  'snippets/image', 'snippets/wikipedia',
+  'snippets/image', 'snippets/wikipedia', 'snippets/thimble',
   'util/dom', 'text!layouts/explode-container.html' ],
   function(
     flickr_snippet, googlemap_snippet, popcorn_snippet,
     text_snippet, url_snippet, popcornmaker_snippet,
-    image_snippet, wikipedia_snippet,
+    image_snippet, wikipedia_snippet, thimble_snippet,
     domutils, explode_container
     ){
 
   var snippets = [
     wikipedia_snippet,
     image_snippet,
+    thimble_snippet,
     popcornmaker_snippet,
     flickr_snippet,
     googlemap_snippet,
@@ -35,7 +36,7 @@ require.config({
 
     var masonryWall = window._m = new Masonry(wallDiv, {
       isFitWidth: true,
-      columnWidth: 275,
+      columnWidth: 70,
       gutterWidth: 10
     });
 
@@ -119,6 +120,11 @@ require.config({
     }, false);
 
     addItem(findSnippetMatch('http://popcorn.webmadecontent.org/aur_'));
+    addItem(findSnippetMatch('https://thimble.webmaker.org/p/fjtk'));
+    addItem(findSnippetMatch('https://thimble.webmaker.org/p/fjt0'));
+    addItem(findSnippetMatch('http://popcorn.webmadecontent.org/11_'));
+    addItem(findSnippetMatch('https://thimble.webmaker.org/p/fjt6'));
+    addItem(findSnippetMatch('https://thimble.webmaker.org/p/fjtp'));
   }
 
   if(document.readyState === 'loading'){
