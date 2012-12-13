@@ -6,7 +6,7 @@ var express = require('express'),
 app
     .use(express.logger('dev'))
     .use(stylus.middleware({
-      src: __dirname + '/src',
+      src: __dirname + '/css-src',
       dest: __dirname + '/public',
       compile: function(str, path){
         return stylus(str)
