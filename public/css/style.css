@@ -2,24 +2,27 @@ html,body{width:100%;height:100%;margin:0;padding:0;font-family:helvetica;backgr
 body{overflow-x:hidden;overflow-y:scroll}
 .masonry-brick{margin-bottom:10px;width:560px}
 .masonry-brick{-webkit-transition:left .6s ease,right .6s ease,top .6s ease;-moz-transition:left .6s ease,right .6s ease,top .6s ease;-o-transition:left .6s ease,right .6s ease,top .6s ease;transition:left .6s ease,right .6s ease,top .6s ease;box-shadow:0 4px 4px -3px rgba(0,0,0,0.1);border:1px solid #ddd}
-.exploded{display:none}
-.explode-container > *{width:100%}
-.explode-button:hover{background-color:#ffca47}
-.explode-button{display:block;margin-top:8px;width:28px;height:28px;border-radius:3px;cursor:pointer;background:url("https://popcorn.webmaker.org/resources/controls/controls_icons.png") no-repeat;background-position:7px -2px}
-.edit-button{display:block;margin-top:8px;width:32px;height:28px;border-radius:3px;cursor:pointer;background:url("https://popcorn.webmaker.org/resources/controls/controls_icons.png") no-repeat;background-position:-4px -91px}
-.x{position:absolute;top:5px;right:0;height:24px;width:24px;background:url("https://popcorn.webmaker.org/resources/icons/glyphiconshalflings-alt.png") -432px -24px no-repeat}
-.iframe-container{position:relative;width:560px;height:370px}
-.iframe-container > iframe{width:100%;height:100%;margin:0}
-.unit-small{width:275px}
-.unit-small img{width:100%}
-iframe{border:0}
-iframe.unit-small{height:200px}
-iframe.unit-small.portrait{height:500px}
-.unit-large{width:560px}
-iframe.unit-large{height:315px}
-iframe.unit-large.portrait{height:700px}
-.popcorn-maker{width:560;height:358}
-.popcorn-maker iframe{border:0;width:560;height:358}
+.masonry-brick:hover .mini-menu-inner{top:0;opacity:1}
+.mini-menu{position:absolute;top:0;left:0;width:100%;height:45px;overflow:hidden;}
+.mini-menu .mini-menu-inner{position:absolute;background:rgba(255,202,71,0.6);top:-45px;width:100%;list-style:none;padding:0;margin:0;z-index:1;height:100%;opacity:0;-webkit-transition:all .1s ease;-moz-transition:all .1s ease;-o-transition:all .1s ease;transition:all .1s ease;}
+.mini-menu .mini-menu-inner > li{padding:0 1em;line-height:45px;float:left;color:#555;border-right:1px solid #dfad50;margin-top:8px;width:28px;height:28px;border-radius:3px;cursor:pointer;}
+.mini-menu .mini-menu-inner > li a{display:block;width:100%;height:100%;background:url("https://popcorn.webmaker.org/resources/controls/controls_icons.png") no-repeat;}
+.mini-menu .mini-menu-inner > li a:hover{background-color:#ffca47}
+.mini-menu .mini-menu-inner .explode-button{background-position:7px -2px}
+.mini-menu .mini-menu-inner .edit-button{width:32px;background-position:-27px -2px}
+.mini-menu .mini-menu-inner .x{position:absolute;top:5px;right:0;height:24px;width:24px;background:url("https://popcorn.webmaker.org/resources/icons/glyphiconshalflings-alt.png") -432px -24px no-repeat}
+iframe.panel{boder:0;}
+iframe.panel.unit-small{height:200px;}
+iframe.panel.unit-small.portrait{height:500px}
+iframe.panel.unit-large{height:315px;}
+iframe.panel.unit-large.portrait{height:700px}
+.panel{padding:5px;background:#fff}
+.panel.unit-small{width:275px;}
+.panel.unit-small img{width:100%}
+.panel.unit-large{width:560px}
+.popcorn-maker{width:560px;height:350px;}
+.popcorn-maker .mini-menu .mini-menu-inner .identifier-button{background-position:-63px 2px;background-size:200px}
+.popcorn-maker iframe{border:0;width:100%;height:100%}
 .flickr{height:500px}
 .flickr iframe{width:100%;height:100%;border:0}
 .googlemap{height:300px;}
@@ -30,8 +33,9 @@ iframe.unit-large.portrait{height:700px}
 .text > .inner{padding:2em;font-size:.9em;line-height:1.6}
 .wikipedia{height:500px;}
 .wikipedia iframe{width:100%;height:100%;border:0}
-.thimble{background:#fff;width:300px;height:500px;}
-.thimble > iframe{border:0;width:600px;height:1000px;-webkit-transform:scale(.5,.5);-moz-transform:scale(.5,.5);-o-transform:scale(.5,.5);transform:scale(.5,.5);-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-o-transform-origin:0 0;transform-origin:0 0}
+.thimble{background:#fff;width:200px;height:350px;}
+.thimble > iframe{border:0;width:500%;height:500%;-webkit-transform:scale(.2);-moz-transform:scale(.2);-o-transform:scale(.2);transform:scale(.2);-webkit-transform-origin:0 0;-moz-transform-origin:0 0;-o-transform-origin:0 0;transform-origin:0 0}
+.thimble .mini-menu .mini-menu-inner .identifier-button{background-position:3px 2px;background-size:90px;background-image:url("https://thimble.webmaker.org/media/img/thimble-logo.png")}
 .wall{margin:0 auto;-webkit-transition:height .6s ease,width .6s ease,opacity .2s ease;-moz-transition:height .6s ease,width .6s ease,opacity .2s ease;-o-transition:height .6s ease,width .6s ease,opacity .2s ease;transition:height .6s ease,width .6s ease,opacity .2s ease;width:100%;opacity:0;}
 .wall.on{opacity:1}
 .profile{position:absolute;top:0;right:5px;color:#fff}
@@ -48,10 +52,6 @@ header h1{margin:0;color:#fff;font-size:1.4em;text-align:center}
 .menu ul li:hover{background:url("https://popcorn.webmaker.org/resources/controls/controls_icons.png"),#999}
 .menu ul li:nth-child(1){background-position:-63px -3px}
 .menu ul li:nth-child(2){background-position:5px -3px}
-.masonry-brick:hover .mini-menu-inner{top:0;opacity:1}
-.mini-menu{position:absolute;top:0;left:0;width:100%;height:45px;overflow:hidden}
-.mini-menu-inner{position:absolute;background:rgba(255,202,71,0.6);top:-45px;width:100%;height:100%;list-style:none;padding:0;margin:0;z-index:1;height:100%;opacity:0;-webkit-transition:all .4s ease;-moz-transition:all .4s ease;-o-transition:all .4s ease;transition:all .4s ease}
-.mini-menu-inner > li{padding:0 1em;line-height:45px;height:100%;float:left;color:#555;border-right:1px solid #dfad50}
 .app-overlay{position:fixed;z-index:99999;top:0;left:0;bottom:0;right:0;background:rgba(0,0,0,0.8);-webkit-transition:opacity .1s ease;-moz-transition:opacity .1s ease;-o-transition:opacity .1s ease;transition:opacity .1s ease;opacity:0;visibility:hidden;}
 .app-overlay.on{opacity:1;visibility:visible}
 .app-overlay .app-iframe-container{position:absolute;top:50px;left:50px;right:50px;bottom:50px}

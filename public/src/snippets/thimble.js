@@ -19,6 +19,7 @@ define(['./snippet', 'util/dom'], function(snippet){
 
       return {
         element: div,
+        identifier: 'http://thimble.webmaker.org',
         explode: function(){
           return explodeItems;
         },

@@ -20,6 +20,7 @@ define(['./snippet', 'util/dom'], function(snippet){
 
       return {
         element: div,
+        identifier: 'http://popcorn.webmaker.org',
         explode: function(){
           return explodeItems;
         },

@@ -1,4 +1,3 @@
-//domutils.fragment('<iframe class="unit-small portrait exploded-item" src="http://en.m.wikipedia.org/wiki/The_Life_and_Death_of_Colonel_Blimp"></iframe>')
 define(['./snippet'], function(snippet){
   var urlRegex = /wikipedia.org\/wiki\/([^$]+)/;
 
