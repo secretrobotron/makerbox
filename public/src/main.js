@@ -40,7 +40,8 @@ require.config({
 
     urlInput.addEventListener('keypress', function(e){
       if(e.which === 13 && urlInput.value.replace(/\s/g, '').length > 0){
-        wall.add(urlInput.value);
+        itemWall.add(urlInput.value);
+        urlInput.value = '';
       }
     }, false);
 

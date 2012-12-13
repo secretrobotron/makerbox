@@ -6,18 +6,11 @@ define([], function(){
     var editButton = menuDiv.querySelector('.edit-button');
     var identifierButton = menuDiv.querySelector('.identifier-button');
 
-    this.enableExplodeButton = function(){
+    this.enableExplodeButton = function(callback){
       explodeButton.addEventListener('click', function addExploded(){
         var newItems = Array.prototype.slice.call(item.explode());
 
-        newItems.forEach(function(item){
-          if(typeof item === 'string'){
-            addItem(findSnippetMatch(item), rootElement);
-          }
-          else {
-            wallDiv.appendChild(item);
-          }
-        });
+        callback(newItems);
 
         explodeButton.removeEventListener('click', addExploded, false);
         explodeButton.style.display = 'none';
@@ -30,11 +23,10 @@ define([], function(){
       explodeButton.parentNode.removeChild(explodeButton);
     };
 
-    this.enableEditButton = function(){
+    this.enableEditButton = function(callback){
       if(item.edit.indexOf('[app]') === 0){
         editButton.addEventListener('click', function(e){
-          appContainer.classList.add('on');
-          appIframe.src = item.edit.substr(5);
+          callback(item.edit.substr(5));
         }, false);
       }
       else {
@@ -53,10 +45,6 @@ define([], function(){
     this.disableIdentifierButton = function(){
       identifierButton.parentNode.removeChild(identifierButton);
     };
-
-    item.explode ? this.enableExplodeButton() : this.disableExplodeButton();
-    item.edit ? this.enableExplodeButton() : this.disableExplodeButton();
-    item.identifier ? this.enableIdentifierButton() : this.disableIdentifierButton();
 
   }
 

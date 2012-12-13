@@ -17,13 +17,33 @@ define(['util/dom', 'text!layouts/explode-container.html', 'mini-menu'],
 
       rootElement = item.element;
 
-      if(item.explode || item.edit){
+      rootElement.classList.add('panel');
+
+      function onEdit(url){
+        appContainer.classList.add('on');
+        appIframe.src = url;
+      }
+
+      function onExplode(items){
+        items.forEach(function(item){
+          if(typeof item === 'string'){
+            addItem(snippetManager.matchSnippet(item), rootElement);
+          }
+          else {
+            wallDiv.appendChild(item);
+          }
+        });
+      }
+
+      if(item.explode || item.edit || item.identifier){
         miniMenuDiv = __explodeContainer.querySelector('.mini-menu').cloneNode(true);
         rootElement.appendChild(miniMenuDiv);
 
-        rootElement.classList.add('panel');
-
         miniMenu = new mini_menu.MiniMenu(item, miniMenuDiv);
+
+        item.explode ? miniMenu.enableExplodeButton(onExplode) : miniMenu.disableExplodeButton();
+        item.edit ? miniMenu.enableEditButton(onEdit) : miniMenu.disableEditButton();
+        item.identifier ? miniMenu.enableIdentifierButton() : miniMenu.disableIdentifierButton();
       }
 
       if(insertAfterElement){
