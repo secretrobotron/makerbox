@@ -1,4 +1,4 @@
-define(['./snippet', 'util/dom'], function(snippet){
+define(['./snippet', 'util/xhr'], function(snippet, xhrutils){
   var urlRegex = /(http(s)?:\/\/)?popcorn.webmadecontent.org\/([^\/$\?&]+)/;
 
   return function(input){
@@ -6,6 +6,8 @@ define(['./snippet', 'util/dom'], function(snippet){
     var div;
 
     if(urlMatch){
+      var inIframeUrl = urlMatch[3].lastIndexOf('_');
+
       div = snippet.createIframe('popcorn-maker', 'http://popcorn.webmadecontent.org/' + urlMatch[3]);
       div.querySelector('iframe').classList.add('unit-large');
 
@@ -18,13 +20,18 @@ define(['./snippet', 'util/dom'], function(snippet){
         'http://en.m.wikipedia.org/wiki/The_Life_and_Death_of_Colonel_Blimp'
       ];
 
+      // var 
+      // if(urlMatch)
+
+      // xhrutils.get()
+
       return {
         element: div,
         identifier: 'http://popcorn.webmaker.org',
         explode: function(){
           return explodeItems;
         },
-        edit: '[app]http://popcorn.webmaker.org/templates/basic/?savedDataUrl=/api/remix/37'
+        edit: 'http://popcorn.webmaker.org/templates/basic/?savedDataUrl=/api/remix/37'
       };
     }
   };

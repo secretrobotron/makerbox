@@ -1,0 +1,6 @@
+.main-view {
+  width 600px
+  margin 20px auto
+  background #fff
+  border-radius 20px
+}

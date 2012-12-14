@@ -19,8 +19,6 @@ require.config({
   function start(){
     var urlInput = document.querySelector('.input-container input');
     var wallDiv = document.querySelector('.wall');
-    var appContainer = document.querySelector('.app-overlay');
-    var appIframe = appContainer.querySelector('iframe');
 
     var snippetManager = new snippet_manager.SnippetManager();
 
@@ -47,8 +45,8 @@ require.config({
 
     itemWall.add('http://popcorn.webmadecontent.org/aur_');
     itemWall.add('https://thimble.webmaker.org/p/fjtk');
-    itemWall.add('https://thimble.webmaker.org/p/fjt0');
     itemWall.add('http://popcorn.webmadecontent.org/11_');
+    itemWall.add('https://thimble.webmaker.org/p/fjt0');
     itemWall.add('https://thimble.webmaker.org/p/fjt6');
     itemWall.add('https://thimble.webmaker.org/p/fjtp');
   }

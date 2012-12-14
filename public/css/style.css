@@ -3,7 +3,8 @@ body{overflow-x:hidden;overflow-y:scroll}
 .masonry-brick{margin-bottom:10px;width:560px}
 .masonry-brick{-webkit-transition:left .6s ease,right .6s ease,top .6s ease;-moz-transition:left .6s ease,right .6s ease,top .6s ease;-o-transition:left .6s ease,right .6s ease,top .6s ease;transition:left .6s ease,right .6s ease,top .6s ease;box-shadow:0 4px 4px -3px rgba(0,0,0,0.1);border:1px solid #ddd}
 .masonry-brick:hover .mini-menu-inner{top:0;opacity:1}
-.mini-menu{position:absolute;top:0;left:0;width:100%;height:45px;overflow:hidden;}
+.panel .mini-menu{top:0;left:0;width:100%;height:45px}
+.mini-menu{position:absolute;overflow:hidden;}
 .mini-menu .mini-menu-inner{position:absolute;background:rgba(255,202,71,0.6);top:-45px;width:100%;list-style:none;padding:0;margin:0;z-index:1;height:100%;opacity:0;-webkit-transition:all .1s ease;-moz-transition:all .1s ease;-o-transition:all .1s ease;transition:all .1s ease;}
 .mini-menu .mini-menu-inner > li{padding:0 1em;line-height:45px;float:left;color:#555;border-right:1px solid #dfad50;margin-top:8px;width:28px;height:28px;border-radius:3px;cursor:pointer;}
 .mini-menu .mini-menu-inner > li a{display:block;width:100%;height:100%;background:url("https://popcorn.webmaker.org/resources/controls/controls_icons.png") no-repeat;}
@@ -38,9 +39,10 @@ iframe.panel.unit-large.portrait{height:700px}
 .thimble .mini-menu .mini-menu-inner .identifier-button{background-position:3px 2px;background-size:90px;background-image:url("https://thimble.webmaker.org/media/img/thimble-logo.png")}
 .wall{margin:0 auto;-webkit-transition:height .6s ease,width .6s ease,opacity .2s ease;-moz-transition:height .6s ease,width .6s ease,opacity .2s ease;-o-transition:height .6s ease,width .6s ease,opacity .2s ease;transition:height .6s ease,width .6s ease,opacity .2s ease;width:100%;opacity:0;}
 .wall.on{opacity:1}
-.profile{position:absolute;top:0;right:5px;color:#fff}
-.profile .profile-pic{width:50px;background:#fff;padding:4px;top:5px;position:relative;float:right}
-.profile h2{margin-top:0;padding-top:0;position:relative;right:20px;text-align:right;width:300px;font-size:1em;opacity:.8}
+.profile{color:#fff;width:550px;height:320px;background:#fff;border-radius:15px;padding:20px;color:#000;position:relative}
+.profile .profile-pic{width:250px;background:#fff;padding:4px;float:left}
+.profile h2{right:20px;text-align:right;font-size:1em;opacity:.8}
+.profile p{position:absolute;right:20px;left:300px;bottom:0;top:3em;text-overflow:ellipsis;overflow:hidden}
 header{background:#2a2d32;height:70px;line-height:70px;position:relative}
 header h1{margin:0;color:#fff;font-size:1.4em;text-align:center}
 .input-container{width:100%;margin:10px 0;text-align:center}
@@ -56,3 +58,15 @@ header h1{margin:0;color:#fff;font-size:1.4em;text-align:center}
 .app-overlay.on{opacity:1;visibility:visible}
 .app-overlay .app-iframe-container{position:absolute;top:50px;left:50px;right:50px;bottom:50px}
 .app-overlay .app-iframe{width:100%;height:100%}
+.main-view{right:10px;left:10px;height:400px;margin:20px 20px;background:#fff;border-radius:10px;position:relative;}
+.main-view iframe{margin:20px;width:560px}
+.main-view .description{position:absolute;top:0;left:700px;right:0;bottom:0;}
+.main-view .description .body ul{list-style:none;}
+.main-view .description .body ul li{height:30px;margin:20px 0;line-height:30px;}
+.main-view .description .body ul li img{width:30px;height:30px;float:left;margin-right:10px}
+.main-view .description .mini-menu{position:absolute;bottom:20px;height:45px;right:20px;left:20px;}
+.main-view .description .mini-menu .mini-menu-inner{opacity:1;top:0;}
+.main-view .description .mini-menu .mini-menu-inner .identifier-button{background-position:-63px 2px;background-size:200px}
+.main-view .description .header{margin:20px;padding:15px;border-radius:5px;background:#00c78c;color:#fff;font-size:110%;text-align:left;position:relative;height:45px;padding-left:70px;}
+.main-view .description .header p{margin:0}
+.main-view .description .header:before{background-image:url("https://popcorn.webmaker.org/resources/controls/controls_icons.png");background-position:4px -36px;content:'';height:50px;width:60px;position:absolute;left:10px}

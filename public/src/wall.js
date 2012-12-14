@@ -55,7 +55,7 @@ define(['util/dom', 'text!layouts/explode-container.html', 'mini-menu'],
         }
       }
       else {
-        wallDiv.insertBefore(rootElement, wallDiv.firstChild);
+        wallDiv.insertBefore(rootElement, wallDiv.firstChild.nextSibling.nextSibling);
       }
 
       if(item.wait){
