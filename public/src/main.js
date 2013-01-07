@@ -80,10 +80,7 @@ require.config({
 
         var publishedUrl = response['published-url'];
         var thimbleUUID = publishedUrl.substr(publishedUrl.indexOf('poof.hksr.us/') + 13);
-        var thimbleUrl = 'http://jsthimble.toolness.org/#/' + thimbleUUID;
-
-        remixUrl.querySelector('a').href = thimbleUrl;
-        remixUrl.querySelector('a').innerHTML = thimbleUrl;
+        window.location.href = 'http://jsthimble.toolness.org/#/' + thimbleUUID;
       };
 
       xhr.send(form);
