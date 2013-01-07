@@ -17,20 +17,18 @@ html
     script(src='http://stevenlevithan.com/demo/parseuri/js/assets/parseuri.js')
 
   body
-    div(class='butter-header', data-butter-exclude)
-      nav(id='webmaker-nav')
-      a(href='http://www.mozilla.org/', id='tabzilla')
-        mozilla
-      header(class='butter-header-primary')
-        div(class='butter-logo')
-        ul(class='butter-nav')
-          li(class='butter-breadcrumbs')
-          li
-            button(class='thimble-remix-button btn-blue') Remix in Thimble
-            button(class='popcorn-remix-button') Remix in Popcorn Maker
+    nav(id='webmaker-nav')
+        a(href='http://www.mozilla.org/', id='tabzilla')
+            mozilla
 
-    div(class='input-container')
-        input(type='text', placeholder='paste your thoughts here')
+    header(class='input-container')
+        ul
+            li
+                input(type='text', placeholder='Add some text or a url here...')
+            li
+                button(class='thimble-remix-button btn-blue') Remix in Thimble
+            li
+                button(class='popcorn-remix-button') Remix in Popcorn Maker
 
     div(class='wall')
         for entry in htmlEntries

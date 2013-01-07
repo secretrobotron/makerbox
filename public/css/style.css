@@ -1,5 +1,5 @@
 html,body{width:100%;height:100%;margin:0;padding:0;font-family:helvetica;background:#f3f3f3}
-body{overflow-x:hidden;overflow-y:scroll;padding-top:100px}
+body{overflow-x:hidden;overflow-y:scroll}
 button{display:inline-block;background:#3fb58e;font-size:12px;border:1px solid #39a380;padding:10px;margin-right:10px;color:rgba(255,255,255,0.8);}
 button.btn-blue{background:#5f87f8;border-color:#3e6ef7}
 button:hover{box-shadow:0 2px -3px 2px rgba(0,0,0,0.15);color:#fff}
@@ -42,8 +42,12 @@ iframe.panel.unit-large.portrait{height:700px}
 .thimble .mini-menu .mini-menu-inner .identifier-button{background-position:3px 2px;background-size:90px;background-image:url("https://thimble.webmaker.org/media/img/thimble-logo.png")}
 .wall{margin:0 auto;-webkit-transition:height .6s ease,width .6s ease,opacity .2s ease;-moz-transition:height .6s ease,width .6s ease,opacity .2s ease;-o-transition:height .6s ease,width .6s ease,opacity .2s ease;transition:height .6s ease,width .6s ease,opacity .2s ease;width:100%;opacity:0;}
 .wall.on{opacity:1}
-.input-container{width:100%;text-align:center;margin-bottom:20px}
-.input-container input{width:300px}
+.input-container{background:#ddd;padding:0;border-bottom:1px solid #b8b8b8;width:100%;text-align:left;margin-bottom:20px}
+.input-container > ul{list-style:none;margin:0;padding:0 0 0 20px;}
+.input-container > ul li{padding:20px 0;display:inline-block;}
+.input-container > ul li:first-child{padding-right:20px;margin-right:20px;border-right:1px solid #c2c2c2}
+.input-container input{width:400px;padding:12px;border:1px solid #b8b8b8;box-shadow:0 2px 5px -3px rgba(0,0,0,0.15);}
+.input-container input:focus{outline:none;border:1px solid #3fb58e;box-shadow:0 2px 5px -3px rgba(0,0,0,0.2)}
 .profile{color:#fff;width:550px;height:365px;background:#fff;border-radius:15px;padding:20px;color:#000;position:relative}
 .profile .profile-pic{width:250px;background:#fff;padding:4px;float:left}
 .profile h2{right:20px;text-align:right;font-size:1em;opacity:.8}
