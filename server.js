@@ -17,4 +17,8 @@ app
     }))
     .use(express.static(__dirname + '/public'));
 
+app.post('/render', function(req, res){
+  console.log('bloop');
+});
+
 app.listen(config.port);
