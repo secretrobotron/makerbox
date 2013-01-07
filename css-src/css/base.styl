@@ -1,3 +1,7 @@
+// Constants
+green = #3FB58E;
+blue = #5F87F8;
+
 html, body {
   width: 100%;
   height: 100%;
@@ -11,4 +15,22 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   padding-top: 100px;
+}
+
+button {
+  background: green;
+  font-size: 12px;
+  border: 1px solid darken(green, 10%);
+  padding: 10px;
+  color: rgba(255,255,255,0.8);
+
+  &.btn-blue {
+    background: blue;
+    border-color: darken(blue, 10%);
+  }
+
+  &:hover {
+    box-shadow: 0 2px -3px 2px rgba(0,0,0,15%);
+    color: #FFF;
+  }
 }
