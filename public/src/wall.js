@@ -54,8 +54,13 @@ define(['util/dom', 'text!layouts/explode-container.html', 'mini-menu'],
           wallDiv.appendChild(rootElement); 
         }
       }
-      else {
-        wallDiv.insertBefore(rootElement, wallDiv.firstChild.nextSibling.nextSibling);
+      else{
+        if(wallDiv.firstChild && wallDiv.firstChild.nextSibling && wallDiv.firstChild.nextSibling.nextSibling){
+          wallDiv.insertBefore(rootElement, wallDiv.firstChild.nextSibling.nextSibling);
+        }
+        else {
+          wallDiv.appendChild(rootElement);
+        }
       }
 
       if(item.wait){
@@ -66,14 +71,15 @@ define(['util/dom', 'text!layouts/explode-container.html', 'mini-menu'],
       else {
         masonryWall.reload();
       }
+
+      return rootElement;
     }
 
     this.add = function(input){
       var snippetMatch = snippetManager.matchSnippet(input);
       if(snippetMatch){
-        addItem(snippetMatch);
+        return addItem(snippetMatch);
       }
-      return snippetMatch;
     }
 
   }

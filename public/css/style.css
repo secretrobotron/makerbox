@@ -16,10 +16,11 @@ iframe.panel.unit-small{height:200px;}
 iframe.panel.unit-small.portrait{height:500px}
 iframe.panel.unit-large{height:315px;}
 iframe.panel.unit-large.portrait{height:700px}
-.panel{padding:5px;padding-bottom:50px;background:#fff}
+.panel{padding:5px;padding-bottom:50px;background:#fff;}
 .panel.unit-small{width:275px}
 .panel.unit-large{width:560px}
 .panel img{width:100%}
+.panel.remix-mark{background:#20bf9f}
 .popcorn-maker{width:560px;height:350px;}
 .popcorn-maker .mini-menu .mini-menu-inner .identifier-button{background-position:-63px 2px;background-size:200px}
 .popcorn-maker iframe{border:0;width:100%;height:100%}

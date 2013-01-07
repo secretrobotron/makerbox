@@ -19,6 +19,7 @@ require.config({
   function start(){
     var urlInput = document.querySelector('.input-container input');
     var wallDiv = document.querySelector('.wall');
+    var remixUrl = document.querySelector('.remix-url');
 
     var snippetManager = new snippet_manager.SnippetManager();
 
@@ -36,20 +37,57 @@ require.config({
 
     wallDiv.classList.add('on');
 
+    function addRemixListeners(element){
+      element.addEventListener('click', function(e){
+        element.classList.toggle('remix-mark');
+      }, false);
+    }
+
     urlInput.addEventListener('keypress', function(e){
       if(e.which === 13 && urlInput.value.replace(/\s/g, '').length > 0){
-        itemWall.add(urlInput.value);
+        addRemixListeners(itemWall.add(urlInput.value));
         urlInput.value = '';
       }
     }, false);
 
-    //itemWall.add('http://localhost:8888/v/33_.html', );
-    itemWall.add('http://popcorn.webmadecontent.org/aur_');
-    itemWall.add('https://thimble.webmaker.org/p/fjtk');
-    itemWall.add('http://popcorn.webmadecontent.org/11_');
-    itemWall.add('https://thimble.webmaker.org/p/fjt0');
-    itemWall.add('https://thimble.webmaker.org/p/fjt6');
-    itemWall.add('https://thimble.webmaker.org/p/fjtp');
+    Array.prototype.forEach.call(wallDiv.querySelectorAll('.panel'), addRemixListeners);
+
+    setTimeout(function(){
+      var urlEnties = document.querySelectorAll('.url-entries input');
+      Array.prototype.forEach.call(urlEnties, function(element){
+        addRemixListeners(itemWall.add(element.value));
+      });
+    }, 250);
+
+    document.querySelector('.thimble-remix-button').addEventListener('click', function(e){
+      var html = '';
+      var panels = wallDiv.querySelectorAll('.panel.remix-mark');
+
+      Array.prototype.forEach.call(panels, function(element){
+        html += '<div>' + element.innerHTML + '</div>\n';
+      });
+
+      html = html.length > 0 ? html : '<div></div>';
+
+      var form = new FormData();
+      form.append('html', html);
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'http://hackpub.hackasaurus.org/publish');
+
+      xhr.onload = function(e){
+        var response = JSON.parse(xhr.response);
+
+        var publishedUrl = response['published-url'];
+        var thimbleUUID = publishedUrl.substr(publishedUrl.indexOf('poof.hksr.us/') + 13);
+        var thimbleUrl = 'http://jsthimble.toolness.org/#/' + thimbleUUID;
+
+        remixUrl.querySelector('a').href = thimbleUrl;
+        remixUrl.querySelector('a').innerHTML = thimbleUrl;
+      };
+
+      xhr.send(form);
+    }, false);
   }
 
   if(document.readyState === 'loading'){
